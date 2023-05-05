@@ -13,7 +13,7 @@ function TvShowsScreen() {
   }
   
   useEffect(() => {
-    getTvShowsInfo;
+    getTvShowsInfo();
   }, [tvShowsResults])
 
   
