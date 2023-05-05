@@ -24,10 +24,9 @@ export const MovieContext = createContext<MovieContextData>(
 export const MovieContexteProvider = ({children}: ChildrenProps) => {
   const [moviesResults, setMovieResults] = useState<MoviesInterface[]>();
   const [tvShowsResults, setTvShowsResults] = useState<TvShowsInterface[]>();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const getMovieInfo = async (): Promise<MoviesInterface[] | undefined> => {
-    setLoading(true)
     try {
       const results = await movieService.getMovieData();
       setMovieResults(results);
@@ -41,10 +40,9 @@ export const MovieContexteProvider = ({children}: ChildrenProps) => {
   }
 
   const getTvShowsInfo = async (): Promise<TvShowsInterface[] | undefined> => {
-    setLoading(true)
     try {
       const results = await tvShowsService.getTvShowsData();
-      setMovieResults(results);
+      setTvShowsResults(results);
       return results
 
     } catch (err) {
