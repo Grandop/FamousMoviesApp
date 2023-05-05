@@ -2,14 +2,20 @@ import React, { useContext, useEffect } from "react";
 import * as S from './styles';
 import { MovieContext } from "../../contexts/TrendingInfos";
 import TvShowsList from "../../components/TvShowsList/TvShowsList";
+import Loader from "../../components/Loader/Loader";
 
 
 function TvShowsScreen() {
-  const { tvShowsResults, getTvShowsInfo } = useContext(MovieContext)
+  const { tvShowsResults, getTvShowsInfo, loading } = useContext(MovieContext)
 
+  if(loading) {
+    <Loader/>
+  }
+  
   useEffect(() => {
     getTvShowsInfo();
-  }, [])
+  }, [tvShowsResults])
+
   
   return(
     <S.TvShowsContainer>
