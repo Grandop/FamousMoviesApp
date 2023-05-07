@@ -27,7 +27,6 @@ export const MovieContexteProvider = ({children}: ChildrenProps) => {
   const [loading, setLoading] = useState(true);
 
   const getMovieInfo = async (): Promise<MoviesInterface[] | undefined> => {
-    setLoading(true)
     try {
       const results = await movieService.getMovieData();
       setMovieResults(results);
