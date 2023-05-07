@@ -27,13 +27,16 @@ export const MovieContexteProvider = ({children}: ChildrenProps) => {
   const [loading, setLoading] = useState(true);
 
   const getMovieInfo = async (): Promise<MoviesInterface[] | undefined> => {
+    setLoading(true)
     try {
       const results = await movieService.getMovieData();
       setMovieResults(results);
+      setLoading(false)
       return results
 
     } catch (err) {
       setMovieResults([])
+      setLoading(false)
       Alert.alert('Você não está conectado a uma rede wifi')
     }
   }
@@ -43,10 +46,12 @@ export const MovieContexteProvider = ({children}: ChildrenProps) => {
     try {
       const results = await tvShowsService.getTvShowsData();
       setTvShowsResults(results);
+      setLoading(false)
       return results
 
     } catch (err) {
       setTvShowsResults([])
+      setLoading(false)
       Alert.alert('Você não está conectado a uma rede wifi')
     }
     setLoading(false)
