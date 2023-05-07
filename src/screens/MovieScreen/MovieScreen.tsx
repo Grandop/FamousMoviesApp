@@ -8,13 +8,16 @@ import Loader from "../../components/Loader/Loader";
 function MovieScreen() {
   const { moviesResults, getMovieInfo, loading } = useContext(MovieContext)
 
-  if(loading) {
-    <Loader/>
-  }
-
+  
   useEffect(() => {
     getMovieInfo();
-  }, [moviesResults])
+  }, [])
+  
+  if(loading) {
+    return(
+      <Loader/>
+    );
+  }
 
   return(
     <S.MovieContainer>

@@ -34,21 +34,20 @@ export const MovieContexteProvider = ({children}: ChildrenProps) => {
 
     } catch (err) {
       setMovieResults([])
-      Alert.alert('Os dados náo foram carreagados, tente novamente mais tarde')
+      Alert.alert('Você não está conectado a uma rede wifi')
     }
-    setLoading(false)
   }
 
   const getTvShowsInfo = async (): Promise<TvShowsInterface[] | undefined> => {
+    setLoading(true)
     try {
       const results = await tvShowsService.getTvShowsData();
       setTvShowsResults(results);
       return results
 
     } catch (err) {
-      console.log(err)
       setTvShowsResults([])
-      Alert.alert('Os dados náo foram carreagados, tente novamente mais tarde')
+      Alert.alert('Você não está conectado a uma rede wifi')
     }
     setLoading(false)
   }

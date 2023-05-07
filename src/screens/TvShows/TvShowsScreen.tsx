@@ -8,14 +8,16 @@ import Loader from "../../components/Loader/Loader";
 function TvShowsScreen() {
   const { tvShowsResults, getTvShowsInfo, loading } = useContext(MovieContext)
 
-  if(loading) {
-    <Loader/>
-  }
   
   useEffect(() => {
     getTvShowsInfo();
-  }, [tvShowsResults])
-
+  }, [])
+  
+  if(loading) {
+    return(
+      <Loader/>
+    );
+  }
   
   return(
     <S.TvShowsContainer>
