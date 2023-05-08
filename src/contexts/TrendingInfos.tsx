@@ -9,7 +9,7 @@ interface ChildrenProps {
   children: React.ReactNode;
 }
 
-export interface MovieContextData {
+export interface TrendingInfosData {
   moviesResults?: MoviesInterface[];
   tvShowsResults?: TvShowsInterface[];
   loading: boolean;
@@ -17,11 +17,11 @@ export interface MovieContextData {
   getTvShowsInfo: () => Promise<TvShowsInterface[] | undefined>;
 }
 
-export const MovieContext = createContext<MovieContextData>(
-  {} as MovieContextData);
+export const TrendingInfosContext = createContext<TrendingInfosData>(
+  {} as TrendingInfosData);
 
 
-export const MovieContexteProvider = ({children}: ChildrenProps) => {
+export const TrendingContextProvider = ({children}: ChildrenProps) => {
   const [moviesResults, setMovieResults] = useState<MoviesInterface[]>();
   const [tvShowsResults, setTvShowsResults] = useState<TvShowsInterface[]>();
   const [loading, setLoading] = useState(true);
@@ -57,7 +57,7 @@ export const MovieContexteProvider = ({children}: ChildrenProps) => {
   }
 
   return (
-    <MovieContext.Provider 
+    <TrendingInfosContext.Provider 
       value={{
         moviesResults, 
         tvShowsResults,
@@ -66,7 +66,7 @@ export const MovieContexteProvider = ({children}: ChildrenProps) => {
         getTvShowsInfo,
       }}>
       {children}
-    </MovieContext.Provider>
+    </TrendingInfosContext.Provider>
 
   );
 }

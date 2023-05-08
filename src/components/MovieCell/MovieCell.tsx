@@ -9,7 +9,7 @@ function MovieCell(props: MoviesInterface) {
   const fullUrl = baseUrl + props.poster_path;
 
   return(
-    <S.MovieCellContainer>
+    <S.MovieCellContainer activeOpacity={1}>
       <S.TopSection>
         <S.MoviePoster
           source={{ uri: fullUrl }}
