@@ -41,7 +41,7 @@ export const TrendingContextProvider = ({children}: ChildrenProps) => {
     } catch (err) {
       setMovieResults([])
       setLoading(false)
-      Alert.alert('Você não está conectado a uma rede wifi')
+      Alert.alert('Algum erro inesperado aconteceu, tente novamente mais tarde')
     }
   }
 
@@ -56,7 +56,7 @@ export const TrendingContextProvider = ({children}: ChildrenProps) => {
     } catch (err) {
       setTvShowsResults([])
       setLoading(false)
-      Alert.alert('Você não está conectado a uma rede wifi')
+      Alert.alert('Algum erro inesperado aconteceu, tente novamente mais tarde')
     }
   }
 
@@ -71,7 +71,7 @@ export const TrendingContextProvider = ({children}: ChildrenProps) => {
     } catch (err) {
       setPeopleResults([])
       setLoading(false)
-      Alert.alert('Você não está conectado a uma rede wifi')
+      Alert.alert('Algum erro inesperado aconteceu, tente novamente mais tarde')
     }
   }
 
