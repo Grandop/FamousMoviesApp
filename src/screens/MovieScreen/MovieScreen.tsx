@@ -1,13 +1,12 @@
-import React, { useContext, useEffect} from "react";
+import React, { useEffect} from "react";
 import * as S from './styles';
 import MoviesList from "../../components/MoviesList/MoviesList";
-import { TrendingInfosContext } from "../../contexts/TrendingInfos";
 import Loader from "../../components/Loader/Loader";
+import { useTrendingInfo } from "../../hooks/useTrendingInfo";
 
 
 function MovieScreen() {
-  const { moviesResults, getMovieInfo, loading } = useContext(TrendingInfosContext)
-
+  const { moviesResults, getMovieInfo, loading } = useTrendingInfo();
   
   useEffect(() => {
     getMovieInfo();

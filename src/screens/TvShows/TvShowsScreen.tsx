@@ -1,12 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import * as S from './styles';
-import { TrendingInfosContext } from "../../contexts/TrendingInfos";
 import TvShowsList from "../../components/TvShowsList/TvShowsList";
 import Loader from "../../components/Loader/Loader";
+import { useTrendingInfo } from "../../hooks/useTrendingInfo";
 
 
 function TvShowsScreen() {
-  const { tvShowsResults, getTvShowsInfo, loading } = useContext(TrendingInfosContext)
+  const { tvShowsResults, getTvShowsInfo, loading } = useTrendingInfo();
 
   
   useEffect(() => {

@@ -2,11 +2,11 @@ import styled from "styled-components/native";
 import { RFValue } from "react-native-responsive-fontsize";
 import Icon from 'react-native-vector-icons/Ionicons'
 
-export const MovieCellContainer = styled.TouchableOpacity`
-  background-color: #ffc2d1;
-  width: 100%;
+export const PeopleCellContainer = styled.TouchableOpacity`
+  background-color: #93ff96;
   margin-bottom: ${RFValue(20)}px;
   border-radius: ${RFValue(10)}px;
+  width: 100%;
 `;
 
 export const TopSection = styled.View`
@@ -16,13 +16,14 @@ export const TopSection = styled.View`
   border-top-left-radius: ${RFValue(20)}px;
 `;
 
-export const MoviePoster = styled.Image`
-  height: ${RFValue(200)}px;
-  width: ${RFValue(35)}%;
+export const PersonPoster = styled.Image`
+  height: ${RFValue(120)}px;
+  width: ${RFValue(25)}%;
   background-color: gray;
   margin-top: ${RFValue(20)}px;
   margin-left: ${RFValue(20)}px;
   border-radius: ${RFValue(10)}px;
+  margin-bottom: ${RFValue(10)}px;
 `;
 
 export const InfoView = styled.View`
@@ -47,16 +48,4 @@ export const Icons = styled(Icon)`
   margin-bottom: ${RFValue(5)}px;
 `;
 
-export const BottomSection = styled.View`
-  flex: 1;
-  border-bottom-right-radius: ${RFValue(20)}px;
-  border-bottom-left-radius: ${RFValue(20)}px; 
-`;
-
-export const SummaryView = styled.View`
-  margin-top: ${RFValue(10)}px;
-  margin-left: ${RFValue(20)}px;
-  margin-right: ${RFValue(30)}px;
-  margin-bottom: ${RFValue(10)}px;
-`;
 

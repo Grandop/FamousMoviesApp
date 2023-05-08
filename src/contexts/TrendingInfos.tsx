@@ -1,9 +1,11 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 import { MoviesInterface } from "../interfaces/MovieInterface";
 import { movieService } from "../services/movieService";
 import { Alert } from "react-native";
 import { TvShowsInterface } from "../interfaces/TvShowsInterface";
 import { tvShowsService } from "../services/tvShowsService";
+import { PeopleInterface } from "../interfaces/PeopleInterface";
+import { peopleService } from "../services/peopleService";
 
 interface ChildrenProps {
   children: React.ReactNode;
@@ -12,9 +14,11 @@ interface ChildrenProps {
 export interface TrendingInfosData {
   moviesResults?: MoviesInterface[];
   tvShowsResults?: TvShowsInterface[];
+  peopleResults?: PeopleInterface[];
   loading: boolean;
   getMovieInfo: () => Promise<MoviesInterface[] | undefined>;
   getTvShowsInfo: () => Promise<TvShowsInterface[] | undefined>;
+  getPeopleInfo : () => Promise<PeopleInterface[] | undefined>;
 }
 
 export const TrendingInfosContext = createContext<TrendingInfosData>(
@@ -24,6 +28,7 @@ export const TrendingInfosContext = createContext<TrendingInfosData>(
 export const TrendingContextProvider = ({children}: ChildrenProps) => {
   const [moviesResults, setMovieResults] = useState<MoviesInterface[]>();
   const [tvShowsResults, setTvShowsResults] = useState<TvShowsInterface[]>();
+  const [peopleResults, setPeopleResults] = useState<PeopleInterface[]>();
   const [loading, setLoading] = useState(true);
 
   const getMovieInfo = async (): Promise<MoviesInterface[] | undefined> => {
@@ -53,7 +58,21 @@ export const TrendingContextProvider = ({children}: ChildrenProps) => {
       setLoading(false)
       Alert.alert('Você não está conectado a uma rede wifi')
     }
-    setLoading(false)
+  }
+
+  const getPeopleInfo = async (): Promise<PeopleInterface[] | undefined> => {
+    setLoading(true)
+    try {
+      const results = await peopleService.getPeopleInfo();
+      setPeopleResults(results)
+      setLoading(false)
+      return results
+
+    } catch (err) {
+      setPeopleResults([])
+      setLoading(false)
+      Alert.alert('Você não está conectado a uma rede wifi')
+    }
   }
 
   return (
@@ -61,9 +80,11 @@ export const TrendingContextProvider = ({children}: ChildrenProps) => {
       value={{
         moviesResults, 
         tvShowsResults,
+        peopleResults,
         loading, 
         getMovieInfo, 
         getTvShowsInfo,
+        getPeopleInfo,
       }}>
       {children}
     </TrendingInfosContext.Provider>
