@@ -1,13 +1,19 @@
 import React from 'react';
-import { SafeAreaView, Text } from 'react-native';
 import Router from './routes/router';
 import { TrendingContextProvider } from './contexts/TrendingInfos';
+import { StatusBar } from 'react-native';
 
 function App(): JSX.Element {
   return (
-    <TrendingContextProvider>
-      <Router />
-    </TrendingContextProvider>
+    <>
+      <StatusBar
+        backgroundColor='#fff'
+        barStyle='dark-content'
+        />
+      <TrendingContextProvider>
+        <Router />
+      </TrendingContextProvider>
+    </>
   );
 }
 
