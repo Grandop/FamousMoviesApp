@@ -4,9 +4,17 @@ import { MoviesInterface } from "../../interfaces/MovieInterface";
 import CustomText from "../CustomText/CustomText";
 import { formatDate } from "../../utils/formatDate";
 
-function MovieCell(props: MoviesInterface) {
+function MovieCell({ 
+  title,
+  overview,
+  poster_path,
+  release_date,
+  vote_average,
+  vote_count
+}: MoviesInterface) {
+
   const baseUrl = 'https://image.tmdb.org/t/p/w500';
-  const fullUrl = baseUrl + props.poster_path;
+  const fullUrl = baseUrl + poster_path;
 
   return(
     <S.MovieCellContainer activeOpacity={1}>
@@ -19,7 +27,7 @@ function MovieCell(props: MoviesInterface) {
             color="#000"
             fontWeight="bold"
             fontSize={20}
-          >{props.title}</CustomText> 
+          >{title}</CustomText> 
           <S.LineView/>
 
           <S.StaticsView>
@@ -27,19 +35,19 @@ function MovieCell(props: MoviesInterface) {
               name="calendar" 
               size={15}
               color={'#ef233c'}
-            > {formatDate(props.release_date)}
+            > {formatDate(release_date)}
             </S.Icons>
             <S.Icons 
               name="star" 
               size={15}
               color={'#7400b8'}
-            > {props.vote_average}
+            > {vote_average}
             </S.Icons>
             <S.Icons 
               name="person" 
               size={15}
               color={'#0ead69'}
-            > {props.vote_count}
+            > {vote_count}
             </S.Icons>
 
           </S.StaticsView>
@@ -53,7 +61,7 @@ function MovieCell(props: MoviesInterface) {
             color="#000"
             fontWeight="normal"
             fontSize={18}
-          >{props.overview}</CustomText>
+          >{overview}</CustomText>
         </S.SummaryView>
       </S.BottomSection>
 

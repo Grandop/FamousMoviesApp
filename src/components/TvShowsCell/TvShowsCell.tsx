@@ -4,9 +4,17 @@ import CustomText from "../CustomText/CustomText";
 import { formatDate } from "../../utils/formatDate";
 import { TvShowsInterface } from "../../interfaces/TvShowsInterface";
 
-function TvShowsCell(props: TvShowsInterface) {
+function TvShowsCell({
+  name,
+  first_air_date,
+  overview, 
+  poster_path,
+  vote_average,
+  vote_count
+}: TvShowsInterface) {
+
   const baseUrl = 'https://image.tmdb.org/t/p/w500';
-  const fullUrl = baseUrl + props.poster_path;
+  const fullUrl = baseUrl + poster_path;
 
   return(
     <S.MovieCellContainer activeOpacity={1}>
@@ -19,7 +27,7 @@ function TvShowsCell(props: TvShowsInterface) {
             color="#000"
             fontWeight="bold"
             fontSize={20}
-          >{props.name}</CustomText> 
+          >{name}</CustomText> 
           <S.LineView/>
 
           <S.StaticsView>
@@ -27,19 +35,19 @@ function TvShowsCell(props: TvShowsInterface) {
               name="calendar" 
               size={15}
               color={'#ef233c'}
-            > {formatDate(props.first_air_date)}
+            > {formatDate(first_air_date)}
             </S.Icons>
             <S.Icons 
               name="star" 
               size={15}
               color={'#7400b8'}
-            > {props.vote_average}
+            > {vote_average}
             </S.Icons>
             <S.Icons 
               name="person" 
               size={15}
               color={'#0ead69'}
-            > {props.vote_count}
+            > {vote_count}
             </S.Icons>
 
           </S.StaticsView>
@@ -53,7 +61,7 @@ function TvShowsCell(props: TvShowsInterface) {
             color="#000"
             fontWeight="normal"
             fontSize={18}
-          >{props.overview}</CustomText>
+          >{overview}</CustomText>
         </S.SummaryView>
       </S.BottomSection>
 

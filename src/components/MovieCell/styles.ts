@@ -44,7 +44,7 @@ export const StaticsView = styled.View`
 `;
 
 export const Icons = styled(Icon)`
-  margin-bottom: ${RFValue(5)}px;
+  margin-bottom: ${RFValue(10)}px;
 `;
 
 export const BottomSection = styled.View`

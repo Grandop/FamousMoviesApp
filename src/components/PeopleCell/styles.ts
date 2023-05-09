@@ -1,19 +1,15 @@
 import styled from "styled-components/native";
+
 import { RFValue } from "react-native-responsive-fontsize";
 import Icon from 'react-native-vector-icons/Ionicons'
 
 export const PeopleCellContainer = styled.TouchableOpacity`
+  flex: 1;
+  flex-direction: row;
   background-color: #93ff96;
   margin-bottom: ${RFValue(20)}px;
   border-radius: ${RFValue(10)}px;
   width: 100%;
-`;
-
-export const TopSection = styled.View`
-  flex: 1;
-  flex-direction: row;
-  border-top-right-radius: ${RFValue(20)}px;
-  border-top-left-radius: ${RFValue(20)}px;
 `;
 
 export const PersonPoster = styled.Image`
@@ -23,7 +19,7 @@ export const PersonPoster = styled.Image`
   margin-top: ${RFValue(20)}px;
   margin-left: ${RFValue(20)}px;
   border-radius: ${RFValue(10)}px;
-  margin-bottom: ${RFValue(10)}px;
+  margin-bottom: ${RFValue(20)}px;
 `;
 
 export const InfoView = styled.View`
@@ -45,7 +41,5 @@ export const StaticsView = styled.View`
 `;
 
 export const Icons = styled(Icon)`
-  margin-bottom: ${RFValue(5)}px;
+  margin-bottom: ${RFValue(10)}px;
 `;
-
-
