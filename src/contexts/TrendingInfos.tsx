@@ -18,7 +18,7 @@ export interface TrendingInfosData {
   loading: boolean;
   getMovieInfo: () => Promise<MoviesInterface[] | undefined>;
   getTvShowsInfo: () => Promise<TvShowsInterface[] | undefined>;
-  getPeopleInfo : () => Promise<PeopleInterface[] | undefined>;
+  getPeopleInfo: () => Promise<PeopleInterface[] | undefined>;
 }
 
 export const TrendingInfosContext = createContext<TrendingInfosData>(
